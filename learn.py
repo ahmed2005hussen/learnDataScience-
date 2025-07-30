@@ -22,7 +22,7 @@ print("The Type of ","'a' is ",type(a))
 print("The Type of ","'b' is ",type(b))
 print("The Type of ","'c' is ",type(c))
 print("The Type of ","'c' is ",type(d))
-
+# ------------------------------------
 # Variablse Name 
 
 # Legal Names
@@ -40,20 +40,20 @@ myvar2  = "Ahmed"
 my-var = "John"
 my var = "John"
 """
-
+# ------------------------------------
 # Assign Multiple Values
 
 a,b,c = 10 , 20 , 30 
 print(a)
 print(b)
 print(c)
-
+# ------------------------------------
 # One Value to Multiple Variables
 a = b = c = 10 
 print(a)
 print(b)
 print(c)
-
+# ------------------------------------
 # Unpack a Collection
 
 fruits = ["apple" , "banana","cherry"]
@@ -62,7 +62,7 @@ x,y,z = fruits
 print(x)
 print(y)
 print(z)
-
+# ------------------------------------
 # Global Variables
 
 x = "awesome"
@@ -80,7 +80,7 @@ def myfunc():
 myfunc()
 
 print("Python is " + x)
-
+# ------------------------------------
 # The global Keyword
 
 def fun(): 
@@ -90,7 +90,7 @@ def fun():
 
 fun()
 print("outside",x)
-
+# ------------------------------------
 # Data Type in python 
 
 """
@@ -104,6 +104,7 @@ Boolean Type:	bool
 Binary Types:	bytes, bytearray, memoryview
 None Type:	NoneType
 """
+# ------------------------------------
 #  Data Types 
 x = "Hello World"	
 print(type(x))
@@ -149,4 +150,65 @@ print(type(x))
 
 x = None
 print(type(x))	
+# ------------------------------------
+# IN and Not IN
 
+txt = "Ahmed hussein"
+
+print("Ahmed" in txt )     # true
+print("Ahmed" not in txt ) # false 
+
+# ------------------------------------
+
+# Slicing 
+
+# possitive index 
+x = "ahmed Hussein"
+print(x[0:5])
+print(x[:5])
+
+print(x[::2]) # two step 
+
+# negative index 
+print(x[-13:-8])
+
+# ------------------------------------
+# Split 
+x = "ahmed H u s sein"
+print(x.split(' '))
+print(x.split(' ',2)) # split(separator , maxsplit )
+# ------------------------------------
+# Format 
+x = "ahmed"
+y = "hussein"
+print(f"my name is {x} and my father name is {y}") 
+# ------------------------------------
+# replace 
+x = "ahmed"
+print(x.replace('h','A'))
+print(x.replace('hme','A'))
+# ------------------------------------
+# escape characters 
+
+print("ahmed \nhussein") # new line 
+print("The date now is 30\\07\\2025") # backSlach 
+print("'ahmed'") # without any escape characters 
+print('\'ahmed\' ') # to make '' in '' for strings 
+print("\"ahmed\"")# to make "" in "" for strings 
+print("ahmed\rAHM") # replace Strings after \r in begin the string before \r -> AHMed
+print("This is \t tab ")
+# ------------------------------------
+# String Methods
+
+x = "ahmed"
+print(x.upper())
+print(x.lower())
+print(x.capitalize())
+
+x = "HussEin"
+print(x.casefold()) # first letter will be small 
+
+x = "ahmed hussein"
+print(x.center(15)) # it see the length of the string and if the prameter is larger it will be move string to center it 
+
+print(x.count("s")) # Count something in string 
