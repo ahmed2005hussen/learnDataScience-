@@ -8,18 +8,14 @@ dict = {
 }
 
 df = pd.DataFrame(dict)
-df.index = {"BR","RU","IN","CH","SA"} 
+df.index = ["BR", "RU", "IN", "CH", "SA"]
 
 
 
-# print(df.loc["BR"]) # return BR row as series 
-# print(df.loc[["BR"]]) # return BR row as DataFrame 
-# print(df.loc[["BR" , "SA"]]) # return BR and SA row as DataFrame 
+
+print(df.iloc[0]) # return BR row as series 
+print(df.iloc[[0]]) # return BR row as DataFrame 
+print(df.iloc[[0 , 1]]) # return BR and SA row as DataFrame 
 
 
-# print(df.loc['RU' , ["area"]]) # return area for RU as a series 
-# print(df.loc[['RU'] , ["area"]]) # return area for RU as a DataFrame 
-
-
-# print(df.loc[:,["country" , "area"]]) # return country and area for all data as DataFrame 
-print(df.loc[["RU"],:]) # return country and area for all data as DataFrame 
+print(df.iloc[1, [2]]) # return area for RU as a series 
