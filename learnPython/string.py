@@ -1,3 +1,27 @@
+# here we will discuess the rules and guidelines for named variable 
+"""
+1- don't start with number 
+2- don't use any special character like {@ $ ! , ....}
+3- can start with underscore _
+4- can include _ or number in or last your variable 
+5- use snake_case for named your long variable 
+5- shouldn't use l or o to named variable as it could be confusing with 1 or 0
+"""
+
+
+
+
+
+
+# concatenat 
+firstName = "ahmed "
+lastName = "hussein"
+fullName = firstName + lastName 
+print(fullName)
+
+age = 50 
+print(fullName + str(age))
+
 # IN and Not IN
 
 txt = "Ahmed hussein"
@@ -58,11 +82,11 @@ print("\n")
 # ------------------------------------
 # String Methods
 
-x = "ahmed"
+x = "ahmed hussein"
 print(x.upper())
 print(x.lower())
 print(x.capitalize())
-
+print(x.title())
 
 x = "HussEin"
 print(x.casefold()) # first letter will be small 
@@ -115,4 +139,6 @@ print("\n")
 
 print("123".isnumeric()) # ✅ True 
 print("12 3".isnumeric())# ❌ False
+
+# --------------------------
 
