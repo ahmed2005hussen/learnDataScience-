@@ -137,8 +137,6 @@ df = pd.DataFrame(dict)
 df.index = ["BR", "RU", "IN", "CH", "SA"]
 
 
-
-
 print(df.iloc[0]) # return BR row as series 
 print("\n \n")
 
@@ -156,3 +154,14 @@ print(df.iloc[[1] , [2]]) # return area for RU as a DataFrame
 print("\n \n")
 
 # -------------------------------------------------------------------
+# compare 
+import pandas as pd
+import numpy as np
+data = pd.read_csv("Country.csv" , index_col=0)
+
+greater = data["area"] > 8
+print(data[greater])
+print("\n \n")
+print(np.logical_and(data["area"] > 8 , data["area"] < 17))
+print("\n \n")
+print(data[np.logical_and(data["area"] > 8 , data["area"] < 17)])

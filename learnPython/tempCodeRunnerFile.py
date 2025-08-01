@@ -1,3 +1,2 @@
-x = 1 
-print(+x)
-print (x)
+thislist = ["apple", "banana", "cherry"]
+[print(x) for x in thislist]
