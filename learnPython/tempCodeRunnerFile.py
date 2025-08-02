@@ -1,5 +1,6 @@
-areas = [11.25, 18.0, 20.0, 10.75, 9.50]
 
-# Code the for loop
-for index, area in enumerate(areas) :
-    print("room " + str(index) + ": " + str(area))
+list1 = ["a", "b", "c"]
+list2 = [1, 2, 3]
+
+list2.extend(list1)
+print(list2)
