@@ -1,8 +1,5 @@
-firstName = "ahmed "
-lastName = "hussein"
-fullName = firstName + lastName 
-print(fullName)
+areas = [11.25, 18.0, 20.0, 10.75, 9.50]
 
-age = 50 
-print(fullName + str(age))
-
+# Code the for loop
+for index, area in enumerate(areas) :
+    print("room " + str(index) + ": " + str(area))

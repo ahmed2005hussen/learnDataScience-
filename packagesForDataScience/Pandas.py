@@ -165,3 +165,36 @@ print("\n \n")
 print(np.logical_and(data["area"] > 8 , data["area"] < 17))
 print("\n \n")
 print(data[np.logical_and(data["area"] > 8 , data["area"] < 17)])
+#--------------------------------------------
+
+# looping 
+import pandas as pd
+brics = pd.read_csv("Country.csv" , index_col=0)
+for lab , row in brics.iterrows():
+    print(lab)
+    print(row)
+    print("----")
+
+
+
+import pandas as pd
+brics = pd.read_csv("Country.csv" , index_col=0)
+for lab , row in brics.iterrows():
+    print(str(lab) + " " + row["country"])
+        
+    print("----")
+
+
+# create new column in data frame
+import pandas as pd
+brics = pd.read_csv("Country.csv" , index_col=0)
+for lab , row in brics.iterrows():
+    brics.loc[lab, "name_length"] = len(row["country"])
+
+print(brics)
+
+# easier method 
+import pandas as pd
+brics = pd.read_csv("Country.csv" , index_col=0)
+brics["name_length"] = brics["country"].apply(len)
+print(brics)
