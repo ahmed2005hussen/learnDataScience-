@@ -232,30 +232,32 @@ print(List)
 List.sort(reverse= True) 
 print(List)
 
-
 def myfunc(n):
   return abs(n - 50)
 
 thislist.sort(key = myfunc)
 print(thislist)
 
-
 thislist = ["banana", "Orange", "Kiwi", "cherry"]
 thislist.sort()
 print(thislist)
-
-
 
 thislist = ["banana", "Orange", "Kiwi", "cherry"]
 thislist.sort(key= str.lower)
 print(thislist)
 
-
-
 thislist = [100, 50, 65, 82, 23]
 thislist.reverse()
 print(thislist)
 
+
+
+# sort method modify in original list 
+# if you want to print list as sorted list by not affect in original list use sorted() method 
+
+list2 = [9,3,4,2,1,5,7]
+print(sorted(list2))
+print(list2)
 # --------------------------------
 # Copy List
 
