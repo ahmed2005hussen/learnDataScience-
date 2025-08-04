@@ -1,4 +1,2 @@
-import pandas as pd 
-x = pd.read_csv("data manipulation with pandas\homelessness.csv")
-MountainRegion = x[x["region"].isin(["Mountain"])]
-print(MountainRegion)
+groupBy = data.pivot_table(values="temperature_c",index="store" , columns="department", aggfunc=["median" , "mean"] , fill_value=0 , margins=True)
+print(groupBy)
