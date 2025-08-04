@@ -1,4 +1,7 @@
-# Basic 
+# pandas deal with data frame.
+# data frame == tables 
+
+# To create Date Frame  
 import pandas as pd 
 dict = {
     
@@ -11,7 +14,7 @@ x = pd.DataFrame(dict)
 print(x)
 print("\n \n")
 #---------------------------------
-#  change index for your data frame  
+# Change index for your data frame, index like primary key in sql  
 import pandas as pd 
 dict = {
     
@@ -165,6 +168,8 @@ print("\n \n")
 print(np.logical_and(data["area"] > 8 , data["area"] < 17))
 print("\n \n")
 print(data[np.logical_and(data["area"] > 8 , data["area"] < 17)])
+print("\n")
+print(data[(data["area"] > 8) & (data["area"] < 17)])
 #--------------------------------------------
 
 # looping 
@@ -198,3 +203,91 @@ import pandas as pd
 brics = pd.read_csv("Country.csv" , index_col=0)
 brics["name_length"] = brics["country"].apply(len)
 print(brics)
+
+# ------------------
+
+# Data Manipulation with pandas : 
+# -------------------------------
+
+# if you have a huge data , and want to see just a few rows : 
+
+import pandas as pd 
+
+x = pd.read_csv("First Project\workspace\\netflix_data.csv")
+print(x.head(2)) # print the first 2 rows only 
+#---------------------------------
+import pandas as pd 
+
+x = pd.read_csv("First Project\workspace\\netflix_data.csv")
+print(x.shape) # (number of rows , number of columns )
+
+# ------------------------------
+# if you want to know : count , mean , std , min , max use describe() method 
+# conut is the number of non missing value in your numerical table 
+# this method give you fast look in your data 
+
+import pandas as pd 
+
+x = pd.read_csv("First Project\workspace\\netflix_data.csv")
+print(x.describe())
+# -----------------------
+
+import pandas as pd 
+
+x = pd.read_csv("First Project\workspace\\netflix_data.csv")
+print(x.values) # return data in list 
+print(x.columns) # name of columns table 
+print(x.index)  
+# ----------------------------
+# Print information about the column types and missing values in 
+import pandas as pd 
+
+x = pd.read_csv("First Project\workspace\\netflix_data.csv")
+print(x.info())
+# ---------------------------
+# sort by column value acsending 
+import pandas as pd 
+x = pd.read_csv("data manipulation with pandas\homelessness.csv")
+print(x.head(4))
+print("\n")
+x = x.sort_values("family_members")
+print(x.head(4))
+
+# sort by column value descending 
+
+import pandas as pd 
+x = pd.read_csv("data manipulation with pandas\homelessness.csv")
+print(x.head(4))
+print("\n")
+x = x.sort_values("family_members",ascending=False)
+print(x.head(4))
+
+# sort by more than one column 
+
+import pandas as pd 
+x = pd.read_csv("data manipulation with pandas\homelessness.csv")
+print(x.head(4))
+print("\n")
+x = x.sort_values(["family_members" , "state_pop"])
+print(x.head(4))
+
+import pandas as pd 
+x = pd.read_csv("data manipulation with pandas\homelessness.csv")
+print(x.head(4))
+print("\n")
+x = x.sort_values(["family_members" , "state_pop"] , ascending= [True,False])
+print(x.head(4))
+
+#--------------------
+import pandas as pd 
+x = pd.read_csv("data manipulation with pandas\homelessness.csv")
+print(x[[0],"family_members"])
+
+# ---------------
+# subsetting
+
+import pandas as pd 
+x = pd.read_csv("data manipulation with pandas\homelessness.csv")
+MountainRegion = x[x["region"].isin(["Mountain"])]
+print(MountainRegion) # give all Mountain regiion 
+#----------------------------------
