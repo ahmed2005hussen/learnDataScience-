@@ -36,6 +36,27 @@ thisList = list(("apple", "banana" , "cherry "))
 print(thisList)
 print(type(thisList))
 
+# -------------------------------
+# to build list from 1 to 10
+
+numbers = list(range(1,11))
+print(numbers)
+
+# if you want to build list of even numbers from 1 to 10 
+
+numbers  =list(range(2,11,2))
+print(numbers)
+
+# ---------------------------------
+# Simple Statistics with a List of Numbers
+
+numbers = list(range(1,1000000))
+print(max(numbers))
+print(min(numbers))
+print(sum(numbers))
+
+# ---------------------------------
+
 # Access Item
 myList = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
 print(myList[0])
@@ -313,3 +334,4 @@ list2 = [1, 2, 3]
 
 list2.extend(list1)
 print(list2)
+# ----------------
