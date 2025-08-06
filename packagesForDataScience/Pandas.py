@@ -360,8 +360,8 @@ print(groupBy)
 import pandas as pd
 data = pd.read_csv("data manipulation with pandas\sales_subset.csv")
 
-# values is the column you want to summarize 
-# index is the column that you want to group by 
+# values : is the column you want to summarize 
+# index : is the column that you want to group by 
 # by default, pivot table takes the mean value for each group 
 
 groupBy = data.pivot_table(values="temperature_c",index="store")

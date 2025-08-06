@@ -7,11 +7,13 @@
 5- use snake_case for named your long variable 
 5- shouldn't use l or o to named variable as it could be confusing with 1 or 0
 """
+# ----------------------------------
+# Immutable : objects can’t be changed after it is created as int, float, bool, string, Unicode, tuple.
 
-
-
-
-
+st = "ahmed"
+print(st[1])
+# st[1] = "s" # Error
+print(st)
 
 # concatenat 
 firstName = "ahmed "

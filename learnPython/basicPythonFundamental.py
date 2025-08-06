@@ -118,3 +118,8 @@ Boolean Type:	bool
 Binary Types:	bytes, bytearray, memoryview
 None Type:	NoneType
 """
+
+# ------------------------------
+
+print("ahmed" , end=",")
+print("ahmed" , end="")
