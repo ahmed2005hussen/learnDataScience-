@@ -1,3 +1,45 @@
+# ------------------------------------------
+# Author: Ahmed Hussein Ahmed
+# ------------------------------------------
+
+# ✅ Python Version
+# - Use `sys.version` to check the installed Python version.
+
+# ✅ Comments
+# - Single-line comments use `#`.
+# - Multi-line comments can be done using triple quotes `""" """`.
+
+# ✅ Variables
+# - Python is dynamically typed, no need to declare variable types.
+# - Examples with `int`, `float`, `str`.
+
+# ✅ Variable Naming Rules
+# - Legal: my_var, _myvar, myVar, MYVAR, myvar2
+# - Illegal: 2myvar, my-var, my var
+
+# ✅ Multiple Assignment
+# - Assign multiple variables in one line: `a, b, c = 1, 2, 3`
+# - Same value to multiple variables: `a = b = c = 10`
+# - Unpacking a collection: `x, y, z = [1, 2, 3]`
+
+# ✅ Global vs Local Scope
+# - Variables declared outside functions are global.
+# - Use `global` keyword to modify global variables inside functions.
+# - Variable shadowing: local variables can mask global ones inside a function.
+
+# ✅ Data Types Overview
+# - str, int, float, complex
+# - list, tuple, range
+# - dict
+# - set, frozenset
+# - bool
+# - bytes, bytearray, memoryview
+# - NoneType
+
+# ✅ `print()` Enhancements
+# - Use `end=""` to control line endings in print statements.
+
+
 # To know The version for python 
 import sys
 print(sys.version)

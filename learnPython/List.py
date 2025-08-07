@@ -1,3 +1,63 @@
+# ------------------------------------------
+# Author: Ahmed Hussein Ahmed
+# ------------------------------------------
+
+# ✅ Introduction to Lists
+# - Lists are ordered, changeable, allow duplicates, and are created using square brackets [].
+# - List items are indexed and support different data types in one list.
+
+# ✅ List Basics
+# - Creating lists, checking length and type.
+# - Demonstration of mutability and type flexibility.
+# - Creating list with constructor (list()).
+
+# ✅ Generate Ranges
+# - Use range() to create sequences.
+# - Even numbers, large number lists with min, max, sum.
+
+# ✅ Access & Slicing
+# - Indexing (positive & negative), slicing with ranges.
+# - Membership test with `in`.
+
+# ✅ Modifying Lists
+# - Change items using indexing and slicing.
+# - Inserting items with `insert`.
+# - Appending with `append` (including list of items).
+# - Extend lists with `extend`.
+
+# ✅ Removing Items
+# - `remove` by value.
+# - `pop` by index or default (last).
+# - `del` for specific item or entire list.
+# - `clear()` to empty list contents.
+
+# ✅ Looping Through Lists
+# - Basic `for` loop and `range(len(list))`.
+# - `enumerate` to get index with value.
+
+# ✅ List Comprehensions
+# - Create lists using `[expression for item in iterable if condition]`.
+# - Replace values, filter values, apply transformations, inline if-else.
+
+# ✅ Sorting Lists
+# - `sort()` (ascending, descending).
+# - Custom sort with key function.
+# - Sorting with `str.lower` for case-insensitive sort.
+# - `reverse()` and `sorted()` (non-destructive).
+
+# ✅ Copying Lists
+# - Avoid shadow copy (`list2 = list1`) ➤ causes shared reference.
+# - Use `list(list1)` or slicing (`list1[:]`) for deep copy.
+
+# ✅ Joining Lists
+# - Concatenate using `+`.
+# - Use loop with `append()` or `extend()` for merging.
+
+# ✅ Practical Examples Throughout
+# - Multiple illustrative cases with print statements for output understanding.
+
+# ---------------------------------------------------------------
+
 # Lists are used to store multiple items in a single variable.
 # List items are ordered, changeable, and allow duplicate values.
 # List items are indexed.
