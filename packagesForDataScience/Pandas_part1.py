@@ -411,3 +411,33 @@ print(newdata.reset_index())
 print("\n\n")
 
 print(newdata.reset_index(drop=True))
+# ---------------------------------------
+
+# missing value 
+
+import pandas as pd 
+import numpy as np
+data = {
+    "Name": ["Ali", "Sara", "Omar", "Mona", None],
+    "Age": [25, None, 30, 22, 28],
+    "City": ["Cairo", "Alexandria", None, "Giza", "Cairo"],
+    "Salary": [5000, 7000, np.nan, 4500, 6000]
+}
+
+df = pd.DataFrame(data)
+
+print(df.isna())
+print("\n \n")
+print(df.isna().any()) # detecting any missing value in columns 
+print("\n\n")
+print(df.isna().sum())
+
+# remove missing values
+# method one delete rows which contain missing value 
+print("\n\n")
+m1 = df.dropna()
+print(m1)
+print('\n\n')
+# method 2 replace with 0 
+m2 = df.fillna(0)
+print(m2)
