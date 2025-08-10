@@ -1,5 +1,7 @@
-for x in range(6):
-  if x == 3: break
-  print(x)
-else:
-  print("Finally finished!")
+
+import datetime
+
+x = datetime.datetime.now()
+
+print(x.year)
+print(x.strftime("%B"))
