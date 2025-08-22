@@ -18,7 +18,7 @@ dict = {
 }
 
 # To Create Data Frame (Table)
-x = pd.DataFrame(dict) 
+x = pd.DataFrame(dict)
 print(x)
 print("\n \n")
 
@@ -35,6 +35,14 @@ dict = {
 
 x = pd.DataFrame(dict) 
 x.index = {"BR","RU","IN","CH","SA"} # change index for your data frame
+
+# Or if you want set a column to be index you can use : 
+# x = x.set_index("name column") OR 
+# x.set_index("name column" , inplace=True)
+
+# If you want to reset index to original : 
+# x.reset_index(drop = True , inplace = True)
+
 print(x)
 print("\n \n")
 
@@ -176,7 +184,7 @@ data = pd.read_csv("Country.csv" , index_col=0)
 greater = data["area"] > 8
 print(data[greater])
 print("\n \n")
-print(np.logical_and(data["area"] > 8 , data["area"] < 17))
+print(np.logical_and(data["area"] > 8 , data["area"] < 17)) # True or False
 print("\n \n")
 print(data[np.logical_and(data["area"] > 8 , data["area"] < 17)])
 print("\n")

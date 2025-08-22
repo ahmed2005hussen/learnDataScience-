@@ -5,12 +5,12 @@
 
 import pandas as pd 
 
-x = pd.read_csv("First Project\workspace\\netflix_data.csv")
+x = pd.read_csv(r"projects\Netflix project\workspace\netflix_data.csv")
 print(x.head(2)) # print the first 2 rows only 
 #---------------------------------
 import pandas as pd 
 
-x = pd.read_csv("First Project\workspace\\netflix_data.csv")
+x = pd.read_csv(r"projects\Netflix project\workspace\netflix_data.csv")
 print(x.shape) # (number of rows , number of columns )
 
 # ------------------------------
@@ -20,13 +20,13 @@ print(x.shape) # (number of rows , number of columns )
 
 import pandas as pd 
 
-x = pd.read_csv("First Project\workspace\\netflix_data.csv")
+x = pd.read_csv(r"projects\Netflix project\workspace\netflix_data.csv")
 print(x.describe())
 # -----------------------
 
 import pandas as pd 
 
-x = pd.read_csv("First Project\workspace\\netflix_data.csv")
+x = pd.read_csv(r"projects\Netflix project\workspace\netflix_data.csv")
 print(x.values) # return data in list 
 print(x.columns) # name of columns table 
 print(x.index)  
@@ -34,7 +34,7 @@ print(x.index)
 # Print information about the column types and missing values in 
 import pandas as pd 
 
-x = pd.read_csv("First Project\workspace\\netflix_data.csv")
+x = pd.read_csv(r"projects\Netflix project\workspace\netflix_data.csv")
 print(x.info())
 # ---------------------------
 # sort by column value acsending 
@@ -86,7 +86,7 @@ data = pd.read_csv("data manipulation with pandas\homelessness.csv")
 
 print("The mean is : ",data["family_members"].mean())
 print("The meadian is : ",data["family_members"].median())
-print("The mode is : ",data["family_members"].mode()[0])
+print("The mode is : ",data["family_members"].mode()[0]) # as we may have multiple modes 
 print("The min is : ",data["family_members"].min())
 print("The max is : ",data["family_members"].max())
 print("The std is : ",data["family_members"].std())
@@ -121,7 +121,7 @@ data = pd.DataFrame(dic)
 notduplicated = data.drop_duplicates(subset="name")
 print(notduplicated)
 print(notduplicated["color"].value_counts())
-print(notduplicated["color"].value_counts(normalize=True))
+print(notduplicated["color"].value_counts(normalize=True)) # هيقسم كل قيمة على إجمالي عدد العناصر ويطلعلك النسبة
 
 print("\n")
 
