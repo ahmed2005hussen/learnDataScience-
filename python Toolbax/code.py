@@ -7,3 +7,12 @@ for chunk in pd.read_csv(r"projects\Netflix project\workspace\netflix_data.csv" 
                          chunksize=10):
     print(chunk["show_id"])
     print("Done\n\n")
+
+
+print("\n\n")
+
+df = pd.read_csv(r"projects\Netflix project\workspace\netflix_data.csv" ,
+                         chunksize=10)
+
+print(next(df) ) # first Chunk
+print(next(df)) # second chunk 
