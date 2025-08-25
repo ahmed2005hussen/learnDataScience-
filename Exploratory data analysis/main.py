@@ -179,3 +179,226 @@ print(df[check],"\n\n")
 
 # لو مفيش ولا واحدة تنطبق → يصنفها "Other".
 
+# -----------------------
+
+# Working with numeric data
+
+# pd.Series.str.replace("characters to remove", "characters to replace them with")
+
+#salaries["Salary_In_Rupees"] = salaries["Salary_In_Rupees"].str.replace(",", "")
+
+import pandas as pd 
+
+salaries = {"Salary_In_Rupees": ["12,12,3" , "31,41,2" , "5,31,3"] , 
+            "Salary_USD" : [12,123,32] ,
+            "Experience": ["a" ,"a" , "b"]}
+
+df = pd.DataFrame(salaries)
+
+print(df)
+
+df["Salary_In_Rupees"] = df["Salary_In_Rupees"].str.replace(",","")
+print(df)
+ 
+print(df["Salary_In_Rupees"].dtypes) # Object 
+
+df["Salary_In_Rupees"] = df["Salary_In_Rupees"].astype("float")
+print(df["Salary_In_Rupees"].dtypes) # float 
+
+df["std_dev"] = df.groupby("Experience")["Salary_USD"].transform(lambda x : x.std())
+print(df)
+
+# df["std_dev"] = df.groupby("Experience")["Salary_USD"].transform(lambda x: x.std())
+# هنا transform بترجع Series بنفس طول DataFrame الأصلي.
+
+# لكل صف، بتكتبله الـ std الخاص بالجروب اللي بينتمي له.
+
+# يعني: لو عندك 100 صف، العمود الجديد هيكون برضه 100 صف.
+
+
+# ------------------------------------
+
+# Handling outliers 
+# لو البيانات حقيقيه فا غالبا هنسيبها حتي لو في outlier
+# لو البيانات مشكوك في صحتها , هنشيلها 
+
+# Patterns over time
+
+import pandas as pd
+
+# To convert object type into date type
+df= pd.read_csv("divorce.csv", parse_dates=["marriage_date"])
+print(df["marriage_date"].dtype)
+
+# OR
+
+df= pd.read_csv("divorce.csv")
+
+df["marriage_date"] = pd.to_datetime(df["marriage_date"])
+print(df["marriage_date"].dtype)
+
+
+import pandas as pd
+
+df= pd.read_csv("divorce.csv")
+
+# Creating datatime data 
+
+df["marriage_date"] = pd.to_datetime(df["marriage_date"])
+
+df["month"] = df["marriage_date"].dt.month
+df["day"] = df["marriage_date"].dt.day
+df["year"] = df["marriage_date"].dt.year
+print(df)
+
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# Correlation
+# Describes direction and strength of relationship between two variables
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df= pd.read_csv("divorce.csv")
+cor = df.corr(numeric_only=True)
+print(cor)
+
+sns.heatmap(cor , annot=True)  # , annot=True -> set the number in the heatmap 
+plt.show()
+
+# relation between this columns in scatter plot
+sns.pairplot(data=df, vars=["income_man", "income_woman", "marriage_duration"])
+plt.show()
+
+
+#1. Scatter Plots بين كل عمودين
+
+# يرسم لك scatter plot لكل زوج من الأعمدة اللي اخترتهم.
+# مثلاً:
+
+# محور X = income_man، محور Y = income_woman
+
+# محور X = income_man، محور Y = marriage_duration
+
+# محور X = income_woman، محور Y = marriage_duration
+
+# وبكده تقدر تشوف العلاقة بين كل اتنين.
+
+# 2. توزيعات الأعمدة نفسها (diagonal)
+
+# على القطر (diagonal) بيعرض histogram أو KDE (distribution) لكل عمود لوحده، عشان تعرف شكل توزيع البيانات.
+
+# 3. الهدف الأساسي
+
+# يساعدك تكتشف بسرعة العلاقات والارتباطات بين المتغيرات.
+
+# تشوف إذا فيه علاقة خطية (linear)، أو غير خطية، أو مفيش علاقة.
+
+# تشوف الـ outliers (قيم شاذة).
+
+
+
+# ------------
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df= pd.read_csv("divorce.csv")
+sns.kdeplot(data=df, x="marriage_duration", hue="education_man")
+plt.show()
+
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df= pd.read_csv("divorce.csv")
+sns.kdeplot(data=df, x="marriage_duration", hue="education_man" , cut = 0)
+plt.show()
+
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+df= pd.read_csv("divorce.csv")
+sns.kdeplot(data=df, x="marriage_duration", hue="education_man" , cut = 0 , cumulative=True)
+plt.show()
+
+# --------------------
+
+# Why perform EDA?
+# Detecting patterns and relationships
+# Generating questions, or hypotheses
+# Preparing data for machine learning
+
+
+
+
+# pd.crosstab(
+#     planes["Source"], 
+#     planes["Destination"], 
+#     values=planes["Price"], 
+#     aggfunc="median"
+# )
+# 1. pd.crosstab
+# بتعمل جدول ملخص (pivot-style table).
+
+# الصفوف = القيم في العمود الأول (Source)
+
+# الأعمدة = القيم في العمود الثاني (Destination)
+
+# 2. values=planes["Price"]
+# بدل ما تحسب عدّ (count) زي ما الـ crosstab بيعمل عادة، هنا بتاخد عمود "Price" وتطبّق عليه دالة تجميع (aggregation).
+
+# 3. aggfunc="median"
+# بدل الـ sum أو mean، هنا بتاخد الوسيط (median) لسعر الرحلة (Price) بين كل زوج (Source, Destination).
+
+# 4. النتيجة:
+# جدول ثنائي الأبعاد:
+
+# الـ صفوف = مدن المغادرة (Source).
+
+# الـ أعمدة = مدن الوصول (Destination).
+
+# الـ قيم الجدول = الـ median لأسعار التذاكر من المصدر إلى الوجهة.
+
+# 📊 مثال (افتراضي):
+
+# Source	Delhi	Mumbai	Chennai
+# Kolkata	4500	5200	6100
+# Delhi 	NaN	    4000	4800
+# Mumbai	4200	NaN	    5000
+
+# ده معناه مثلاً إن:
+
+# median سعر الرحلة من Kolkata → Mumbai هو 5200.
+
+# من Delhi → Chennai هو 4800.
+
+# لو مفيش رحلة بين مدينتين → تطلع NaN.
+
+
+# --------------------------
+
+import pandas as pd
+
+planes = pd.DataFrame({
+    "Price": [100, 200, 300, 400, 500, 600, 1000, 2000]
+})
+
+
+twenty_fifth = planes["Price"].quantile(0.25)
+median = planes["Price"].median()
+seventy_fifth = planes["Price"].quantile(0.75)
+maximum = planes["Price"].max()
+
+labels = ["Economy", "Premium Economy", "Business Class", "First Class"]
+bins = [0, twenty_fifth, median, seventy_fifth, maximum]
+
+planes["Price_Category"] = pd.cut(planes["Price"],labels=labels, bins=bins)
+print(planes)
+
+#النتيجة: الكود بيقسم الأسعار لمستويات (Economy → First Class) حسب توزيعها (quartiles + max).
+
+# -------------------------
+
+# Generating hypotheses
