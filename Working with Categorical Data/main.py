@@ -262,3 +262,34 @@ dogs["coat"].cat.reorder_categories(
     new_categories = ['short', 'medium', 'wirehaired', 'long'],  ordered=True,  inplace=True)
 
 
+# ----------------------------------
+
+import pandas as pd
+
+dogs = pd.DataFrame({
+    "name": ["Buddy", "Luna", "Max"],
+    "coat": ["short", "long", "medium"]
+})
+
+dogs["coat"] = dogs["coat"].astype("category")
+
+print(dogs["coat"].cat.categories)
+# Output: ['long', 'medium', 'short']  (ترتيب افتراضي)
+
+# نحدد الترتيب اللي عايزينه
+dogs["coat"] = dogs["coat"].cat.set_categories(
+   new_categories= ["short", "medium", "long"]
+)
+print(dogs["coat"].cat.categories)
+
+dogs["coat"] = dogs["coat"].cat.remove_categories(removals="short")
+print(dogs["coat"].cat.categories)
+
+# --------------------------------------
+
+# Strip away leading whitespace
+# dogs["sex"] = dogs["sex"].str.strip()
+# dogs["sex"] =  dogs["sex"].str.lower()
+
+# Count the number of dogs that have "English" in their breed name
+# print(dogs[dogs["breed"].str.contains("English", regex=False)].shape[0])

@@ -1,14 +1,20 @@
 import pandas as pd
 
-# DataFrame بسيط
 dogs = pd.DataFrame({
-    "coat": ["short", "long", "wirehaired", "short", "wirehaired"]
-} )
+    "name": ["Buddy", "Luna", "Max"],
+    "coat": ["short", "long", "medium"]
+})
+
 dogs["coat"] = dogs["coat"].astype("category")
 
-print(dogs, "\n\n")
-dogs['coat'] = dogs["coat"].cat.reorder_categories(
-    new_categories = ['short', 'wirehaired', 'long'],  ordered=True)
+print(dogs["coat"].cat.categories)
+# Output: ['long', 'medium', 'short']  (ترتيب افتراضي)
 
+# نحدد الترتيب اللي عايزينه
+dogs["coat"] = dogs["coat"].cat.set_categories(
+   new_categories= ["short", "medium", "long"]
+)
+print(dogs["coat"].cat.categories)
 
-print(dogs)
+dogs["coat"] = dogs["coat"].cat.remove_categories(removals="short")
+print(dogs["coat"].cat.categories)
