@@ -293,3 +293,30 @@ print(dogs["coat"].cat.categories)
 
 # Count the number of dogs that have "English" in their breed name
 # print(dogs[dogs["breed"].str.contains("English", regex=False)].shape[0])
+
+# ------------------------------------------
+
+
+# To get the fone bigger use: 
+# sns.set(font_scale = number like (1.4))
+
+# ------ ------ ------ ------ ------ ------ 
+ 
+# sns.catplot(
+#   # Split the data across Hotel stars and summarize Nr. reviews
+#   x = "Hotel stars",
+#   y = "Nr. reviews",
+#   data=reviews,
+#   # Specify a point plot
+#   kind = "point",
+#   hue="Pool",
+#   # Make sure the lines and points don't overlap
+#   dodge = True
+# )
+
+#  -----------------
+# Updating plots
+# Setup: save your graphic as an object: ax
+# Plot title: ax.fig.suptitle("My title")
+# Axis labels: ax.set_axis_labels("x-axis-label", "y-axis-label")
+# Title height: plt.subplots_adjust(top=.9)
