@@ -25,7 +25,7 @@ print("\n\n")
 print(data.sample())
 print("\n\n")
 
-# Sampling with/without replacement in Python\
+# Sampling with/without replacement in Python
 print(data.sample(5, replace = True))
 
 # --------------------------
